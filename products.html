@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Danh sách sản phẩm mắt kính Owlera – Kính cận, kính râm, kính thời trang cao cấp với đa dạng mẫu mã và phong cách.">
+  <title>Sản Phẩm Mắt Kính | Owlera – Mắt Kính Cao Cấp</title>
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== TOP BAR ===== -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-8 top-bar-left">
+          <span class="mr-4"><i class="fas fa-phone-alt"></i> 0123 456 789</span>
+          <span class="mr-4"><i class="fas fa-envelope"></i> contact@owlera.vn</span>
+          <span><i class="fas fa-map-marker-alt"></i> 123 Nguyễn Huệ, Q.1, TP.HCM</span>
+        </div>
+        <div class="col-md-4 text-right top-bar-right">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAVIGATION BAR ===== -->
+  <nav class="navbar navbar-expand-lg navbar-light navbar-owlera sticky-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-owlera" href="index.html">
+        <i class="fas fa-glasses mr-2" style="color: var(--accent);"></i>OWL<span>ERA</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
+          <li class="nav-item"><a class="nav-link active" href="products.html">Sản Phẩm</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#collection">Bộ Sưu Tập</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">Về Chúng Tôi</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Liên Hệ</a></li>
+        </ul>
+        <form class="search-form mr-3" id="searchForm">
+          <input type="text" class="form-control" placeholder="Tìm kiếm..." aria-label="Tìm kiếm">
+          <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
+        </form>
+        <div class="nav-icons d-flex align-items-center">
+          <button class="nav-icon-btn btn-open-login" data-toggle="modal" data-target="#loginModal" title="Đăng nhập" id="btnOpenLogin">
+            <i class="far fa-user"></i>
+          </button>
+          <div class="user-logged-in d-none" id="userLoggedIn">
+            <div class="dropdown">
+              <button class="btn btn-user-info dropdown-toggle" type="button" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle mr-1"></i><span id="navUserName"></span>
+              </button>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#"><i class="far fa-user mr-2"></i>Tài khoản</a>
+                <a class="dropdown-item" href="#" onclick="$('#ordersModal').modal('show'); return false;"><i class="fas fa-box mr-2"></i>Đơn hàng</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item text-danger" href="#" id="btnLogout"><i class="fas fa-sign-out-alt mr-2"></i>Đăng xuất</a>
+              </div>
+            </div>
+          </div>
+          <button class="nav-icon-btn" title="Yêu thích"><i class="far fa-heart"></i></button>
+          <button class="nav-icon-btn" title="Giỏ hàng"><i class="fas fa-shopping-bag"></i><span class="badge-cart">0</span></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== LOGIN MODAL ===== -->
+  <div class="modal fade modal-login" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel"><i class="fas fa-user-circle mr-2"></i>Đăng Nhập</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body p-4">
+          <form id="loginForm">
+            <div class="form-group">
+              <label for="loginEmail">Email</label>
+              <input type="email" class="form-control" id="loginEmail" placeholder="Nhập email của bạn" required>
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">Mật khẩu</label>
+              <input type="password" class="form-control" id="loginPassword" placeholder="Nhập mật khẩu" required>
+            </div>
+            <div class="form-group">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="rememberMe">
+                <label class="custom-control-label" for="rememberMe">Ghi nhớ đăng nhập</label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-login mt-2">Đăng Nhập</button>
+            <div class="text-center mt-3">
+              <span class="text-muted">Chưa có tài khoản? </span>
+              <a href="register.html" style="color: var(--accent); font-weight: 500;">Đăng ký ngay</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <section class="page-header">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <h1 id="pageHeaderTitle">Danh Sách Sản Phẩm</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Trang Chủ</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Sản Phẩm</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS LIST SECTION ===== -->
+  <section class="products-list-section section-padding">
+    <div class="container">
+      <div class="row">
+
+        <!-- ===== SIDEBAR FILTER ===== -->
+        <div class="col-lg-3 mb-4">
+          <div class="sidebar-filter">
+            <div class="filter-block">
+              <h5 class="filter-title">DANH MỤC</h5>
+              <ul class="filter-list" id="categoryFilter">
+                <li><a href="#" class="filter-link active" data-filter="all" data-title="Tất Cả Sản Phẩm"><i class="fas fa-th-large mr-2"></i>Tất Cả Sản Phẩm <span class="badge-count">42</span></a></li>
+                <li><a href="#" class="filter-link" data-filter="can" data-title="Kính Cận"><i class="fas fa-eye mr-2"></i>Kính Cận <span class="badge-count">15</span></a></li>
+                <li><a href="#" class="filter-link" data-filter="ram" data-title="Kính Râm"><i class="fas fa-sun mr-2"></i>Kính Râm <span class="badge-count">14</span></a></li>
+                <li><a href="#" class="filter-link" data-filter="thoitrang" data-title="Kính Thời Trang"><i class="fas fa-gem mr-2"></i>Kính Thời Trang <span class="badge-count">13</span></a></li>
+              </ul>
+            </div>
+            <div class="filter-block">
+              <h5 class="filter-title">MỨC GIÁ</h5>
+              <ul class="filter-list" id="priceFilter">
+                <li><a href="#" class="filter-link active" data-price="all">Tất cả mức giá</a></li>
+                <li><a href="#" class="filter-link" data-price="under1m">Dưới 1.000.000₫</a></li>
+                <li><a href="#" class="filter-link" data-price="1m-2m">1.000.000₫ – 2.000.000₫</a></li>
+                <li><a href="#" class="filter-link" data-price="over2m">Trên 2.000.000₫</a></li>
+              </ul>
+            </div>
+            <!-- Collection Banner -->
+            <div class="collection-banner mt-4" style="background: var(--primary); color: var(--white); padding: 30px; border-radius: 8px; text-align: center;">
+              <span class="badge badge-accent mb-2" style="background: var(--accent); padding: 5px 15px; font-size: 0.7rem; letter-spacing: 2px;">BỘ SƯU TẬP</span>
+              <h4 style="font-family: var(--font-heading); margin-top: 10px;">Thu Đông 2026</h4>
+              <p style="font-size: 0.85rem; opacity: 0.8;">Khám phá bộ sưu tập thu đông mới nhất</p>
+              <a href="index.html#collection" class="btn btn-outline-light btn-sm mt-2">Xem ngay</a>
+            </div>
+          </div>
+          <!-- Mobile Category -->
+          <div class="d-lg-none mt-3">
+            <select class="custom-select" id="mobileCategoryFilter">
+              <option value="all">Tất Cả Sản Phẩm</option>
+              <option value="can">Kính Cận</option>
+              <option value="ram">Kính Râm</option>
+              <option value="thoitrang">Kính Thời Trang</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- ===== PRODUCT GRID ===== -->
+        <div class="col-lg-9">
+          <div class="sort-bar d-flex justify-content-between align-items-center mb-4">
+            <p class="mb-0 text-muted">Hiển thị <strong id="visibleCount">42</strong> sản phẩm</p>
+            <div class="d-flex align-items-center">
+              <a href="#" class="btn btn-sm btn-outline-secondary mr-2 d-none" id="clearSearchBtn"><i class="fas fa-times mr-1"></i>Xóa tìm kiếm</a>
+              <select class="custom-select" id="sortSelect" style="width: auto; min-width: 180px;">
+                <option value="default">Sắp xếp mặc định</option>
+                <option value="price-asc">Giá tăng dần</option>
+                <option value="price-desc">Giá giảm dần</option>
+                <option value="name-asc">Tên A-Z</option>
+              </select>
+            </div>
+          </div>
+          <div class="row" id="productsGrid">
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="can" data-price="900000" data-name="Owlera Classic Round">
+  <div class="product-card" data-product-id="1">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=1"><img src="img/product1.png" alt="Owlera Classic Round"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="can">Kính Cận</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=1">Owlera Classic Round</a></h5>
+      <p class="product-price">900.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="can" data-price="1000000" data-name="Owlera Titanium Slim">
+  <div class="product-card" data-product-id="2">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=2"><img src="img/product2.png" alt="Owlera Titanium Slim"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="can">Kính Cận</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=2">Owlera Titanium Slim</a></h5>
+      <p class="product-price">1.000.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="can" data-price="1100000" data-name="Owlera Blue Shield">
+  <div class="product-card" data-product-id="3">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=3"><img src="img/product3.png" alt="Owlera Blue Shield"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="can">Kính Cận</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=3">Owlera Blue Shield</a></h5>
+      <p class="product-price">1.100.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="can" data-price="1200000" data-name="Owlera Minimalist">
+  <div class="product-card" data-product-id="4">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=4"><img src="img/product4.png" alt="Owlera Minimalist"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="can">Kính Cận</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=4">Owlera Minimalist</a></h5>
+      <p class="product-price">1.200.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="can" data-price="1300000" data-name="Owlera Clear Vision">
+  <div class="product-card" data-product-id="5">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=5"><img src="img/product5.png" alt="Owlera Clear Vision"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="can">Kính Cận</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=5">Owlera Clear Vision</a></h5>
+      <p class="product-price">1.300.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="can" data-price="1400000" data-name="Owlera Office Pro">
+  <div class="product-card" data-product-id="6">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=6"><img src="img/product6.png" alt="Owlera Office Pro"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="can">Kính Cận</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=6">Owlera Office Pro</a></h5>
+      <p class="product-price">1.400.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="can" data-price="1500000" data-name="Owlera Student">
+  <div class="product-card" data-product-id="7">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=7"><img src="img/product7.png" alt="Owlera Student"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="can">Kính Cận</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=7">Owlera Student</a></h5>
+      <p class="product-price">1.500.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="can" data-price="1600000" data-name="Owlera Retro Square">
+  <div class="product-card" data-product-id="8">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=8"><img src="img/product8.png" alt="Owlera Retro Square"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="can">Kính Cận</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=8">Owlera Retro Square</a></h5>
+      <p class="product-price">1.600.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="can" data-price="1700000" data-name="Owlera Hexagon Slim">
+  <div class="product-card" data-product-id="9">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=9"><img src="img/product9.png" alt="Owlera Hexagon Slim"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="can">Kính Cận</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=9">Owlera Hexagon Slim</a></h5>
+      <p class="product-price">1.700.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="can" data-price="1800000" data-name="Owlera Ultra Light">
+  <div class="product-card" data-product-id="10">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=10"><img src="img/product10.png" alt="Owlera Ultra Light"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="can">Kính Cận</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=10">Owlera Ultra Light</a></h5>
+      <p class="product-price">1.800.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="can" data-price="1900000" data-name="Owlera Flex Frame">
+  <div class="product-card" data-product-id="11">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=11"><img src="img/product11.png" alt="Owlera Flex Frame"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="can">Kính Cận</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=11">Owlera Flex Frame</a></h5>
+      <p class="product-price">1.900.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="can" data-price="2000000" data-name="Owlera Crystal Clear">
+  <div class="product-card" data-product-id="12">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=12"><img src="img/product12.png" alt="Owlera Crystal Clear"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="can">Kính Cận</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=12">Owlera Crystal Clear</a></h5>
+      <p class="product-price">2.000.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="can" data-price="2100000" data-name="Owlera Night Drive">
+  <div class="product-card" data-product-id="13">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=13"><img src="img/product13.png" alt="Owlera Night Drive"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="can">Kính Cận</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=13">Owlera Night Drive</a></h5>
+      <p class="product-price">2.100.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="can" data-price="2200000" data-name="Owlera Reading">
+  <div class="product-card" data-product-id="14">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=14"><img src="img/product14.png" alt="Owlera Reading"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="can">Kính Cận</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=14">Owlera Reading</a></h5>
+      <p class="product-price">2.200.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="can" data-price="2300000" data-name="Owlera Executive">
+  <div class="product-card" data-product-id="15">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=15"><img src="img/product15.png" alt="Owlera Executive"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="can">Kính Cận</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=15">Owlera Executive</a></h5>
+      <p class="product-price">2.300.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="ram" data-price="1200000" data-name="Owlera Cat-Eye Noir">
+  <div class="product-card" data-product-id="16">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=16"><img src="img/product16.png" alt="Owlera Cat-Eye Noir"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="ram">Kính Râm</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=16">Owlera Cat-Eye Noir</a></h5>
+      <p class="product-price">1.200.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="ram" data-price="1250000" data-name="Owlera Aviator Gold">
+  <div class="product-card" data-product-id="17">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=17"><img src="img/product17.png" alt="Owlera Aviator Gold"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="ram">Kính Râm</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=17">Owlera Aviator Gold</a></h5>
+      <p class="product-price">1.250.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="ram" data-price="1300000" data-name="Owlera Gradient Square">
+  <div class="product-card" data-product-id="18">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=18"><img src="img/product18.png" alt="Owlera Gradient Square"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="ram">Kính Râm</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=18">Owlera Gradient Square</a></h5>
+      <p class="product-price">1.300.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="ram" data-price="1350000" data-name="Owlera Summer Vibes">
+  <div class="product-card" data-product-id="19">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=19"><img src="img/product19.png" alt="Owlera Summer Vibes"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="ram">Kính Râm</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=19">Owlera Summer Vibes</a></h5>
+      <p class="product-price">1.350.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="ram" data-price="1400000" data-name="Owlera Beach Comber">
+  <div class="product-card" data-product-id="20">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=20"><img src="img/product20.png" alt="Owlera Beach Comber"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="ram">Kính Râm</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=20">Owlera Beach Comber</a></h5>
+      <p class="product-price">1.400.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="ram" data-price="1450000" data-name="Owlera Sunset Driver">
+  <div class="product-card" data-product-id="21">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=21"><img src="img/product21.png" alt="Owlera Sunset Driver"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="ram">Kính Râm</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=21">Owlera Sunset Driver</a></h5>
+      <p class="product-price">1.450.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="ram" data-price="1500000" data-name="Owlera Polarized Max">
+  <div class="product-card" data-product-id="22">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=22"><img src="img/product22.png" alt="Owlera Polarized Max"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="ram">Kính Râm</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=22">Owlera Polarized Max</a></h5>
+      <p class="product-price">1.500.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="ram" data-price="1550000" data-name="Owlera Sport Xtreme">
+  <div class="product-card" data-product-id="23">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=23"><img src="img/product23.png" alt="Owlera Sport Xtreme"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="ram">Kính Râm</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=23">Owlera Sport Xtreme</a></h5>
+      <p class="product-price">1.550.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="ram" data-price="1600000" data-name="Owlera Classic Wayfarer">
+  <div class="product-card" data-product-id="24">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=24"><img src="img/product24.png" alt="Owlera Classic Wayfarer"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="ram">Kính Râm</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=24">Owlera Classic Wayfarer</a></h5>
+      <p class="product-price">1.600.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="ram" data-price="1650000" data-name="Owlera Round Vintage">
+  <div class="product-card" data-product-id="25">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=25"><img src="img/product25.png" alt="Owlera Round Vintage"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="ram">Kính Râm</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=25">Owlera Round Vintage</a></h5>
+      <p class="product-price">1.650.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="ram" data-price="1700000" data-name="Owlera Oversized Glamour">
+  <div class="product-card" data-product-id="26">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=26"><img src="img/product26.png" alt="Owlera Oversized Glamour"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="ram">Kính Râm</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=26">Owlera Oversized Glamour</a></h5>
+      <p class="product-price">1.700.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="ram" data-price="1750000" data-name="Owlera Matrix Style">
+  <div class="product-card" data-product-id="27">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=27"><img src="img/product27.png" alt="Owlera Matrix Style"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="ram">Kính Râm</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=27">Owlera Matrix Style</a></h5>
+      <p class="product-price">1.750.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="ram" data-price="1800000" data-name="Owlera Neon Pop">
+  <div class="product-card" data-product-id="28">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=28"><img src="img/product28.png" alt="Owlera Neon Pop"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="ram">Kính Râm</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=28">Owlera Neon Pop</a></h5>
+      <p class="product-price">1.800.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="ram" data-price="1850000" data-name="Owlera Mirrored Silver">
+  <div class="product-card" data-product-id="29">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=29"><img src="img/product29.png" alt="Owlera Mirrored Silver"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="ram">Kính Râm</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=29">Owlera Mirrored Silver</a></h5>
+      <p class="product-price">1.850.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="thoitrang" data-price="1520000" data-name="Owlera Vintage Rose">
+  <div class="product-card" data-product-id="30">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=30"><img src="img/product30.png" alt="Owlera Vintage Rose"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="thoitrang">Kính Thời Trang</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=30">Owlera Vintage Rose</a></h5>
+      <p class="product-price">1.520.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="thoitrang" data-price="1540000" data-name="Owlera Luxe Oversize">
+  <div class="product-card" data-product-id="31">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=31"><img src="img/product31.png" alt="Owlera Luxe Oversize"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="thoitrang">Kính Thời Trang</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=31">Owlera Luxe Oversize</a></h5>
+      <p class="product-price">1.540.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="thoitrang" data-price="1560000" data-name="Owlera Clear Frame">
+  <div class="product-card" data-product-id="32">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=32"><img src="img/product32.png" alt="Owlera Clear Frame"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="thoitrang">Kính Thời Trang</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=32">Owlera Clear Frame</a></h5>
+      <p class="product-price">1.560.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="thoitrang" data-price="1580000" data-name="Owlera Tortoise Shell">
+  <div class="product-card" data-product-id="33">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=33"><img src="img/product33.png" alt="Owlera Tortoise Shell"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="thoitrang">Kính Thời Trang</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=33">Owlera Tortoise Shell</a></h5>
+      <p class="product-price">1.580.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="thoitrang" data-price="1600000" data-name="Owlera Gold Rim">
+  <div class="product-card" data-product-id="34">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=34"><img src="img/product34.png" alt="Owlera Gold Rim"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="thoitrang">Kính Thời Trang</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=34">Owlera Gold Rim</a></h5>
+      <p class="product-price">1.600.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="thoitrang" data-price="1620000" data-name="Owlera Silver Accent">
+  <div class="product-card" data-product-id="35">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=35"><img src="img/product35.png" alt="Owlera Silver Accent"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="thoitrang">Kính Thời Trang</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=35">Owlera Silver Accent</a></h5>
+      <p class="product-price">1.620.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="thoitrang" data-price="1640000" data-name="Owlera Pink Panther">
+  <div class="product-card" data-product-id="36">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=36"><img src="img/product36.png" alt="Owlera Pink Panther"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="thoitrang">Kính Thời Trang</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=36">Owlera Pink Panther</a></h5>
+      <p class="product-price">1.640.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="thoitrang" data-price="1660000" data-name="Owlera Blue Ocean">
+  <div class="product-card" data-product-id="37">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=37"><img src="img/product37.png" alt="Owlera Blue Ocean"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="thoitrang">Kính Thời Trang</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=37">Owlera Blue Ocean</a></h5>
+      <p class="product-price">1.660.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="thoitrang" data-price="1680000" data-name="Owlera Green Forest">
+  <div class="product-card" data-product-id="38">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=38"><img src="img/product38.png" alt="Owlera Green Forest"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="thoitrang">Kính Thời Trang</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=38">Owlera Green Forest</a></h5>
+      <p class="product-price">1.680.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="thoitrang" data-price="1700000" data-name="Owlera Red Ruby">
+  <div class="product-card" data-product-id="39">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=39"><img src="img/product39.png" alt="Owlera Red Ruby"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="thoitrang">Kính Thời Trang</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=39">Owlera Red Ruby</a></h5>
+      <p class="product-price">1.700.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="thoitrang" data-price="1720000" data-name="Owlera Black Diamond">
+  <div class="product-card" data-product-id="40">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=40"><img src="img/product40.png" alt="Owlera Black Diamond"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="thoitrang">Kính Thời Trang</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=40">Owlera Black Diamond</a></h5>
+      <p class="product-price">1.720.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="thoitrang" data-price="1740000" data-name="Owlera White Pearl">
+  <div class="product-card" data-product-id="41">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=41"><img src="img/product41.png" alt="Owlera White Pearl"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="thoitrang">Kính Thời Trang</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=41">Owlera White Pearl</a></h5>
+      <p class="product-price">1.740.000₫</p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 product-col" data-category="thoitrang" data-price="1760000" data-name="Owlera Yellow Sun">
+  <div class="product-card" data-product-id="42">
+    <div class="product-img-wrapper">
+      <div class="product-actions">
+        <button title="Thêm vào giỏ"><i class="fas fa-cart-plus"></i></button>
+        <button title="Yêu thích"><i class="far fa-heart"></i></button>
+        <button title="Xem nhanh"><i class="far fa-eye"></i></button>
+      </div>
+      <a href="product-detail.html?id=42"><img src="img/product42.png" alt="Owlera Yellow Sun"></a>
+    </div>
+    <div class="product-info">
+      <p class="product-category"><a href="#" class="card-category-link" data-filter="thoitrang">Kính Thời Trang</a></p>
+      <h5 class="product-name"><a href="product-detail.html?id=42">Owlera Yellow Sun</a></h5>
+      <p class="product-price">1.760.000₫</p>
+    </div>
+  </div>
+</div>
+
+          </div>
+          <div class="text-center p-5 d-none" id="noResults">
+            <i class="fas fa-search" style="font-size: 3rem; color: var(--border); margin-bottom: 15px;"></i>
+            <p class="text-muted">Không tìm thấy sản phẩm phù hợp.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="footer-brand">
+            <h4><i class="fas fa-glasses mr-2" style="color: var(--accent);"></i>OWL<span>ERA</span></h4>
+            <p>Owlera – Thương hiệu mắt kính cao cấp hàng đầu Việt Nam. Chúng tôi cam kết mang đến cho bạn trải nghiệm tốt nhất với sản phẩm chất lượng và dịch vụ tận tâm.</p>
+            <div class="footer-social">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h5>Liên Kết</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="products.html">Sản Phẩm</a></li>
+            <li><a href="about.html">Về Chúng Tôi</a></li>
+            <li><a href="register.html">Đăng Ký</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5>Hỗ Trợ</h5>
+          <ul class="footer-links">
+            <li><a href="support.html#huong-dan-mua-hang">Hướng Dẫn Mua Hàng</a></li>
+            <li><a href="support.html#chinh-sach-doi-tra">Chính Sách Đổi Trả</a></li>
+            <li><a href="support.html#chinh-sach-bao-hanh">Chính Sách Bảo Hành</a></li>
+            <li><a href="support.html#cau-hoi-thuong-gap">Câu Hỏi Thường Gặp</a></li>
+            <li><a href="support.html#chinh-sach-bao-mat">Chính Sách Bảo Mật</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5>Liên Hệ</h5>
+          <ul class="footer-links footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i><span>123 Nguyễn Huệ, Quận 1,<br>TP. Hồ Chí Minh</span></li>
+            <li><i class="fas fa-phone-alt"></i><span>0123 456 789</span></li>
+            <li><i class="fas fa-envelope"></i><span>contact@owlera.vn</span></li>
+            <li><i class="fas fa-clock"></i><span>T2 – CN: 8:00 – 21:00</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom text-center">
+        <p class="mb-0">&copy; 2026 <a href="#">Owlera</a>. All Rights Reserved. | Thiết kế bởi <a href="#">Owlera Team</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" title="Về đầu trang"><i class="fas fa-chevron-up"></i></button>
+
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/popper/popper.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/products.js"></script>
+</body>
+</html>

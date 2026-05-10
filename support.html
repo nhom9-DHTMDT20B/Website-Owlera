@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Trung tâm hỗ trợ khách hàng Owlera – Hướng dẫn mua hàng, chính sách đổi trả, bảo hành và giải đáp thắc mắc.">
+  <title>Trung Tâm Hỗ Trợ | Owlera – Mắt Kính Cao Cấp</title>
+
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Support Page Custom Styles */
+    .support-sidebar {
+      position: sticky;
+      top: 100px;
+      background: var(--light-bg);
+      padding: 30px;
+      border-radius: 8px;
+    }
+    .support-sidebar h4 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+    .support-nav .nav-link {
+      color: var(--text-dark);
+      padding: 10px 15px;
+      border-radius: 4px;
+      margin-bottom: 5px;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    .support-nav .nav-link:hover,
+    .support-nav .nav-link.active {
+      background: var(--primary);
+      color: var(--white);
+    }
+    .support-content-section {
+      background: var(--white);
+      padding: 40px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 40px;
+    }
+    .support-content-section h2 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--light-bg);
+    }
+    .support-content-section h5 {
+      color: var(--accent);
+      margin-top: 25px;
+      margin-bottom: 15px;
+    }
+    .faq-accordion .card {
+      border: 1px solid var(--border);
+      margin-bottom: 15px;
+      border-radius: 4px !important;
+    }
+    .faq-accordion .card-header {
+      background: var(--white);
+      border-bottom: none;
+      padding: 0;
+    }
+    .faq-accordion .btn-link {
+      color: var(--text-dark);
+      font-weight: 600;
+      text-decoration: none;
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 15px 20px;
+    }
+    .faq-accordion .btn-link:hover {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== TOP BAR ===== -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-8 top-bar-left">
+          <span class="mr-4"><i class="fas fa-phone-alt"></i> 0123 456 789</span>
+          <span class="mr-4"><i class="fas fa-envelope"></i> contact@owlera.vn</span>
+          <span><i class="fas fa-map-marker-alt"></i> 123 Nguyễn Huệ, Q.1, TP.HCM</span>
+        </div>
+        <div class="col-md-4 text-right top-bar-right">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar navbar-expand-lg navbar-light navbar-owlera sticky-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-owlera" href="index.html">
+        <i class="fas fa-glasses mr-2" style="color: var(--accent);"></i>OWL<span>ERA</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Sản Phẩm</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#collection">Bộ Sưu Tập</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">Về Chúng Tôi</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Liên Hệ</a></li>
+        </ul>
+        <form class="search-form mr-3" id="searchForm">
+          <input type="text" class="form-control" placeholder="Tìm kiếm...">
+          <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
+        </form>
+        <div class="nav-icons d-flex align-items-center">
+          <button class="nav-icon-btn btn-open-login" data-toggle="modal" data-target="#loginModal" id="btnOpenLogin"><i class="far fa-user"></i></button>
+          <div class="user-logged-in d-none" id="userLoggedIn">
+            <div class="dropdown">
+              <button class="btn btn-user-info dropdown-toggle" type="button" id="userDropdown" data-toggle="dropdown">
+                <i class="fas fa-user-circle mr-1"></i><span id="navUserName"></span>
+              </button>
+              <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="#"><i class="far fa-user mr-2"></i>Tài khoản</a>
+                <a class="dropdown-item" href="#"><i class="fas fa-box mr-2"></i>Đơn hàng</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item text-danger" href="#" id="btnLogout"><i class="fas fa-sign-out-alt mr-2"></i>Đăng xuất</a>
+              </div>
+            </div>
+          </div>
+          <button class="nav-icon-btn"><i class="far fa-heart"></i></button>
+          <button class="nav-icon-btn"><i class="fas fa-shopping-bag"></i><span class="badge-cart">0</span></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <div class="page-header bg-light py-5 text-center">
+    <div class="container">
+      <h1 class="display-4 font-weight-bold" style="font-family: var(--font-heading); color: var(--white);">Trung Tâm Hỗ Trợ</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb justify-content-center bg-transparent mb-0">
+          <li class="breadcrumb-item"><a href="index.html" style="color: var(--accent);">Trang Chủ</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Hỗ Trợ</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ===== SUPPORT CONTENT ===== -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="row">
+        
+        <!-- Sidebar Navigation -->
+        <div class="col-lg-3 mb-5 mb-lg-0">
+          <div class="support-sidebar shadow-sm">
+            <h4>Danh Mục Hỗ Trợ</h4>
+            <ul class="nav flex-column support-nav" id="supportNav">
+              <li class="nav-item">
+                <a class="nav-link active" href="#huong-dan-mua-hang">Hướng Dẫn Mua Hàng</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#chinh-sach-doi-tra">Chính Sách Đổi Trả</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#chinh-sach-bao-hanh">Chính Sách Bảo Hành</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#cau-hoi-thuong-gap">Câu Hỏi Thường Gặp (FAQ)</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#chinh-sach-bao-mat">Chính Sách Bảo Mật</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-lg-9">
+          
+          <!-- Hướng Dẫn Mua Hàng -->
+          <div id="huong-dan-mua-hang" class="support-content-section shadow-sm">
+            <h2>Hướng Dẫn Mua Hàng</h2>
+            <p>Chào mừng bạn đến với Owlera. Việc mua sắm trực tuyến tại cửa hàng của chúng tôi rất đơn giản. Dưới đây là các bước cơ bản:</p>
+            <h5>Bước 1: Tìm kiếm và lựa chọn sản phẩm</h5>
+            <p>Bạn có thể duyệt qua danh mục <strong>Sản Phẩm</strong> hoặc sử dụng thanh tìm kiếm để tìm chiếc mắt kính yêu thích. Nhấn vào sản phẩm để xem chi tiết thông số, hình ảnh và giá cả.</p>
+            <h5>Bước 2: Thêm vào giỏ hàng</h5>
+            <p>Sau khi chọn được sản phẩm ưng ý, nhấn nút <strong>"Thêm vào giỏ hàng"</strong>. Bạn có thể tiếp tục mua sắm hoặc tiến hành thanh toán ngay.</p>
+            <h5>Bước 3: Đăng nhập / Điền thông tin giao hàng</h5>
+            <p>Để tiện lợi cho việc theo dõi đơn hàng, bạn nên đăng nhập vào tài khoản Owlera. Điền đầy đủ thông tin địa chỉ giao hàng và số điện thoại liên hệ.</p>
+            <h5>Bước 4: Chọn phương thức thanh toán</h5>
+            <p>Owlera hỗ trợ nhiều hình thức thanh toán bao gồm Thanh toán khi nhận hàng (COD), Chuyển khoản ngân hàng, và Thanh toán qua thẻ tín dụng/ghi nợ.</p>
+            <h5>Bước 5: Xác nhận đơn hàng</h5>
+            <p>Kiểm tra lại toàn bộ thông tin đơn hàng và nhấn <strong>"Đặt Hàng"</strong>. Chúng tôi sẽ gửi email xác nhận và tiến hành giao hàng trong thời gian sớm nhất.</p>
+          </div>
+
+          <!-- Chính Sách Đổi Trả -->
+          <div id="chinh-sach-doi-tra" class="support-content-section shadow-sm">
+            <h2>Chính Sách Đổi Trả</h2>
+            <p>Owlera cam kết mang đến sự hài lòng tuyệt đối cho khách hàng. Nếu bạn không ưng ý với sản phẩm, chúng tôi sẵn sàng hỗ trợ đổi trả theo quy định sau:</p>
+            <h5>1. Điều kiện đổi trả</h5>
+            <ul>
+              <li>Sản phẩm được đổi trả trong vòng <strong>30 ngày</strong> kể từ ngày nhận hàng.</li>
+              <li>Sản phẩm phải còn nguyên vẹn, chưa qua sử dụng, không bị xước xát, gãy vỡ.</li>
+              <li>Phải còn đầy đủ hộp, phụ kiện, tem mác và hóa đơn mua hàng.</li>
+            </ul>
+            <h5>2. Các trường hợp không được đổi trả</h5>
+            <ul>
+              <li>Sản phẩm đã bị thay đổi kết cấu (như cắt mắt kính cận theo độ riêng của khách).</li>
+              <li>Sản phẩm hư hỏng do lỗi chủ quan của người sử dụng.</li>
+              <li>Sản phẩm nằm trong chương trình xả hàng, giảm giá đặc biệt (Clearance sale).</li>
+            </ul>
+            <h5>3. Quy trình đổi trả</h5>
+            <p>Vui lòng liên hệ với bộ phận chăm sóc khách hàng qua Hotline <strong>0123 456 789</strong> hoặc email <strong>contact@owlera.vn</strong>. Chúng tôi sẽ hướng dẫn bạn gửi sản phẩm về trung tâm bảo hành và xử lý hoàn tiền/đổi mới trong vòng 3-5 ngày làm việc.</p>
+          </div>
+
+          <!-- Chính Sách Bảo Hành -->
+          <div id="chinh-sach-bao-hanh" class="support-content-section shadow-sm">
+            <h2>Chính Sách Bảo Hành</h2>
+            <p>Mỗi chiếc kính mua tại Owlera đều được bảo chứng về chất lượng. Dưới đây là chính sách bảo hành chính hãng của chúng tôi:</p>
+            <h5>Thời gian bảo hành</h5>
+            <p>Tất cả gọng kính và kính râm chính hãng được bảo hành kỹ thuật <strong>12 tháng</strong> kể từ ngày mua hàng.</p>
+            <h5>Phạm vi bảo hành</h5>
+            <ul>
+              <li>Bảo hành các lỗi do nhà sản xuất như: bung mối hàn, tuột ốc, lỏng đệm mũi, bong tróc lớp mạ (đối với gọng kim loại không do hóa chất).</li>
+              <li>Hỗ trợ vệ sinh, nắn chỉnh gọng kính, thay ốc, thay đệm mũi miễn phí trọn đời sản phẩm.</li>
+            </ul>
+            <h5>Trường hợp từ chối bảo hành</h5>
+            <ul>
+              <li>Gãy vỡ do va đập, tai nạn trong quá trình sử dụng.</li>
+              <li>Sản phẩm bị tiếp xúc với hóa chất, nhiệt độ cao gây biến dạng.</li>
+              <li>Tròng kính bị xước sau khi đã kiểm tra kỹ lúc nhận hàng.</li>
+            </ul>
+          </div>
+
+          <!-- Câu Hỏi Thường Gặp (FAQ) -->
+          <div id="cau-hoi-thuong-gap" class="support-content-section shadow-sm">
+            <h2>Câu Hỏi Thường Gặp (FAQ)</h2>
+            <div class="accordion faq-accordion" id="faqAccordion">
+              
+              <!-- FAQ 1 -->
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Thời gian giao hàng mất bao lâu? <i class="fas fa-chevron-down float-right mt-1"></i>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                  <div class="card-body text-muted">
+                    Thông thường, đơn hàng nội thành TP.HCM sẽ được giao trong vòng 24h. Đối với các tỉnh thành khác, thời gian giao hàng từ 2 - 4 ngày làm việc tùy vào khu vực.
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 2 -->
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Tôi có thể kiểm tra hàng trước khi thanh toán không? <i class="fas fa-chevron-down float-right mt-1"></i>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+                  <div class="card-body text-muted">
+                    Có. Owlera khuyến khích khách hàng kiểm tra tình trạng hộp, ngoại quan sản phẩm trước khi thanh toán cho nhân viên giao hàng để đảm bảo quyền lợi.
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 3 -->
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Cửa hàng có dịch vụ đo khám mắt không? <i class="fas fa-chevron-down float-right mt-1"></i>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
+                  <div class="card-body text-muted">
+                    Có. Chúng tôi cung cấp dịch vụ đo khám thị lực hoàn toàn miễn phí tại showroom bởi đội ngũ kỹ thuật viên chuyên nghiệp với trang thiết bị hiện đại.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Chính Sách Bảo Mật -->
+          <div id="chinh-sach-bao-mat" class="support-content-section shadow-sm mb-0">
+            <h2>Chính Sách Bảo Mật</h2>
+            <p>Owlera hiểu rằng việc bảo mật thông tin cá nhân là rất quan trọng đối với quý khách. Chúng tôi cam kết tuyệt đối bảo mật thông tin theo nguyên tắc sau:</p>
+            <h5>1. Mục đích thu thập thông tin</h5>
+            <p>Chúng tôi thu thập thông tin (Tên, Email, Số điện thoại, Địa chỉ) chỉ nhằm mục đích xử lý đơn hàng, giao nhận và cung cấp các dịch vụ chăm sóc khách hàng, gửi thông tin khuyến mãi nếu quý khách đăng ký.</p>
+            <h5>2. Cam kết bảo mật</h5>
+            <p>Chúng tôi KHÔNG bán, chia sẻ hay trao đổi thông tin cá nhân của khách hàng cho bất kỳ bên thứ 3 nào khác khi chưa có sự đồng ý, ngoại trừ các đơn vị vận chuyển đối tác để giao hàng.</p>
+            <h5>3. An toàn dữ liệu</h5>
+            <p>Tất cả thông tin giao dịch trực tuyến đều được mã hóa theo chuẩn bảo mật SSL để đảm bảo an toàn tuyệt đối cho thẻ tín dụng và dữ liệu ngân hàng của bạn.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <!-- Brand -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="footer-brand">
+            <h4><i class="fas fa-glasses mr-2" style="color: var(--accent);"></i>OWL<span>ERA</span></h4>
+            <p>Owlera – Thương hiệu mắt kính cao cấp hàng đầu Việt Nam. Chúng tôi cam kết mang đến cho bạn trải nghiệm tốt nhất với sản phẩm chất lượng và dịch vụ tận tâm.</p>
+            <div class="footer-social">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h5>Liên Kết</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="products.html">Sản Phẩm</a></li>
+            <li><a href="about.html">Về Chúng Tôi</a></li>
+            <li><a href="register.html">Đăng Ký</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+          </ul>
+        </div>
+
+        <!-- Customer Service -->
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5>Hỗ Trợ</h5>
+          <ul class="footer-links">
+            <li><a href="support.html#huong-dan-mua-hang">Hướng Dẫn Mua Hàng</a></li>
+            <li><a href="support.html#chinh-sach-doi-tra">Chính Sách Đổi Trả</a></li>
+            <li><a href="support.html#chinh-sach-bao-hanh">Chính Sách Bảo Hành</a></li>
+            <li><a href="support.html#cau-hoi-thuong-gap">Câu Hỏi Thường Gặp</a></li>
+            <li><a href="support.html#chinh-sach-bao-mat">Chính Sách Bảo Mật</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5>Liên Hệ</h5>
+          <ul class="footer-links footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i><span>123 Nguyễn Huệ, Quận 1,<br>TP. Hồ Chí Minh</span></li>
+            <li><i class="fas fa-phone-alt"></i><span>0123 456 789</span></li>
+            <li><i class="fas fa-envelope"></i><span>contact@owlera.vn</span></li>
+            <li><i class="fas fa-clock"></i><span>T2 – CN: 8:00 – 21:00</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom text-center">
+        <p class="mb-0">&copy; 2026 <a href="#">Owlera</a>. All Rights Reserved. | Thiết kế bởi <a href="#">Owlera Team</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" title="Về đầu trang"><i class="fas fa-chevron-up"></i></button>
+
+  <!-- Vendor JS -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/popper/popper.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!-- Custom JS -->
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    // Script to handle active state on scroll for sidebar
+    $(document).ready(function() {
+      // Smooth scroll for sidebar links
+      $('.support-nav .nav-link').on('click', function(e) {
+        if (this.hash !== '') {
+          e.preventDefault();
+          var hash = this.hash;
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top - 120 // offset for fixed header
+          }, 600);
+        }
+      });
+
+      // Highlight active link on scroll
+      $(window).scroll(function() {
+        var scrollPos = $(document).scrollTop();
+        var offset = 150;
+        
+        $('.support-content-section').each(function() {
+          var top = $(this).offset().top - offset;
+          var bottom = top + $(this).outerHeight();
+          
+          if (scrollPos >= top && scrollPos <= bottom) {
+            var currentId = $(this).attr('id');
+            $('.support-nav .nav-link').removeClass('active');
+            $('.support-nav .nav-link[href="#' + currentId + '"]').addClass('active');
+          }
+        });
+      });
+
+      // Check URL hash on load and scroll to it
+      if(window.location.hash) {
+        var hash = window.location.hash;
+        if ($(hash).length) {
+          setTimeout(function() {
+            $('html, body').animate({
+              scrollTop: $(hash).offset().top - 120
+            }, 600);
+            $('.support-nav .nav-link').removeClass('active');
+            $('.support-nav .nav-link[href="' + hash + '"]').addClass('active');
+          }, 300);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

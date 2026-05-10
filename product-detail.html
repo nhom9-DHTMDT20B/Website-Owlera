@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Chi tiết sản phẩm mắt kính Owlera – Xem hình ảnh, giá cả, mô tả chi tiết và đặt mua ngay.">
+  <title>Chi Tiết Sản Phẩm | Owlera – Mắt Kính Cao Cấp</title>
+
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== TOP BAR ===== -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-8 top-bar-left">
+          <span class="mr-4"><i class="fas fa-phone-alt"></i> 0123 456 789</span>
+          <span class="mr-4"><i class="fas fa-envelope"></i> contact@owlera.vn</span>
+          <span><i class="fas fa-map-marker-alt"></i> 123 Nguyễn Huệ, Q.1, TP.HCM</span>
+        </div>
+        <div class="col-md-4 text-right top-bar-right">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar navbar-expand-lg navbar-light navbar-owlera sticky-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-owlera" href="index.html">
+        <i class="fas fa-glasses mr-2" style="color: var(--accent);"></i>OWL<span>ERA</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
+          <li class="nav-item"><a class="nav-link active" href="products.html">Sản Phẩm</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#collection">Bộ Sưu Tập</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">Về Chúng Tôi</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Liên Hệ</a></li>
+        </ul>
+        <form class="search-form mr-3" id="searchForm">
+          <input type="text" class="form-control" placeholder="Tìm kiếm...">
+          <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
+        </form>
+        <div class="nav-icons d-flex align-items-center">
+          <button class="nav-icon-btn btn-open-login" data-toggle="modal" data-target="#loginModal" id="btnOpenLogin"><i class="far fa-user"></i></button>
+          <div class="user-logged-in d-none" id="userLoggedIn">
+            <div class="dropdown">
+              <button class="btn btn-user-info dropdown-toggle" type="button" id="userDropdown" data-toggle="dropdown">
+                <i class="fas fa-user-circle mr-1"></i><span id="navUserName"></span>
+              </button>
+              <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="#"><i class="far fa-user mr-2"></i>Tài khoản</a>
+                <a class="dropdown-item" href="#"><i class="fas fa-box mr-2"></i>Đơn hàng</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item text-danger" href="#" id="btnLogout"><i class="fas fa-sign-out-alt mr-2"></i>Đăng xuất</a>
+              </div>
+            </div>
+          </div>
+          <button class="nav-icon-btn"><i class="far fa-heart"></i></button>
+          <button class="nav-icon-btn"><i class="fas fa-shopping-bag"></i><span class="badge-cart">3</span></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== LOGIN MODAL ===== -->
+  <div class="modal fade modal-login" id="loginModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="fas fa-user-circle mr-2"></i>Đăng Nhập</h5>
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+        </div>
+        <div class="modal-body p-4">
+          <form id="loginForm">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" class="form-control" id="loginEmail" placeholder="Nhập email" required>
+            </div>
+            <div class="form-group">
+              <label>Mật khẩu</label>
+              <input type="password" class="form-control" id="loginPassword" placeholder="Nhập mật khẩu" required>
+            </div>
+            <button type="submit" class="btn btn-login mt-2">Đăng Nhập</button>
+            <div class="text-center mt-3">
+              <span class="text-muted">Chưa có tài khoản? </span>
+              <a href="register.html" style="color: var(--accent); font-weight: 500;">Đăng ký ngay</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <section class="page-header">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <h1 id="detailPageTitle">Chi Tiết Sản Phẩm</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Trang Chủ</a></li>
+              <li class="breadcrumb-item"><a href="products.html">Sản Phẩm</a></li>
+              <li class="breadcrumb-item active" id="breadcrumbName">Chi Tiết</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCT DETAIL ===== -->
+  <section class="product-detail-section section-padding">
+    <div class="container">
+      <div class="row">
+        <!-- Product Images -->
+        <div class="col-lg-6 mb-4">
+          <div class="detail-gallery">
+            <div class="detail-main-img">
+              <img src="img/product1.png" alt="Sản phẩm" id="mainProductImg" class="img-fluid">
+              <span class="detail-badge" id="detailBadge">Hot</span>
+            </div>
+            <div class="detail-thumbnails" id="thumbnailList">
+              <div class="thumb active" data-img="img/product1.png">
+                <img src="img/product1.png" alt="Thumbnail 1">
+              </div>
+              <div class="thumb" data-img="img/hero-slide1.png">
+                <img src="img/hero-slide1.png" alt="Thumbnail 2">
+              </div>
+              <div class="thumb" data-img="img/hero-slide2.png">
+                <img src="img/hero-slide2.png" alt="Thumbnail 3">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="col-lg-6">
+          <div class="detail-info">
+            <span class="detail-category" id="detailCategory">Kính Cận</span>
+            <h1 class="detail-name" id="detailName">Owlera Classic Round</h1>
+
+            <div class="detail-rating mb-3">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span class="rating-text">(4.5 / 5 – 128 đánh giá)</span>
+            </div>
+
+            <div class="detail-price-box">
+              <span class="detail-price" id="detailPrice">1.290.000₫</span>
+              <span class="detail-old-price" id="detailOldPrice">1.690.000₫</span>
+              <span class="detail-discount" id="detailDiscount">-24%</span>
+            </div>
+
+            <div class="detail-description" id="detailDescription">
+              <p>Gọng kính tròn cổ điển với chất liệu Acetate cao cấp nhập khẩu từ Ý. Thiết kế retro tinh tế, phù hợp với mọi khuôn mặt. Tròng kính chống ánh sáng xanh, bảo vệ mắt tối ưu khi sử dụng máy tính và điện thoại.</p>
+            </div>
+
+            <div class="detail-specs">
+              <div class="spec-item">
+                <span class="spec-label">Chất liệu:</span>
+                <span class="spec-value" id="specMaterial">Acetate cao cấp</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Tròng kính:</span>
+                <span class="spec-value" id="specLens">Chống ánh sáng xanh</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Kích thước:</span>
+                <span class="spec-value" id="specSize">50-20-145mm</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Bảo hành:</span>
+                <span class="spec-value">12 tháng chính hãng</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Tình trạng:</span>
+                <span class="spec-value text-success"><i class="fas fa-check-circle mr-1"></i>Còn hàng</span>
+              </div>
+            </div>
+
+            <!-- Quantity & Buy -->
+            <div class="detail-actions">
+              <div class="qty-wrapper">
+                <label>Số lượng:</label>
+                <div class="qty-control">
+                  <button class="qty-btn" id="qtyMinus">–</button>
+                  <input type="number" class="qty-input" id="qtyInput" value="1" min="1" max="10">
+                  <button class="qty-btn" id="qtyPlus">+</button>
+                </div>
+              </div>
+              <div class="detail-buttons">
+                <button class="btn btn-owlera btn-buy" id="btnBuyNow">
+                  <i class="fas fa-shopping-bag mr-2"></i>Mua Ngay
+                </button>
+                <button class="btn btn-add-cart" id="btnAddCart">
+                  <i class="fas fa-cart-plus mr-2"></i>Thêm Vào Giỏ
+                </button>
+                <button class="btn btn-wishlist" id="btnWishlist">
+                  <i class="far fa-heart"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Perks -->
+            <div class="detail-perks">
+              <div class="perk"><i class="fas fa-shipping-fast"></i> Miễn phí giao hàng toàn quốc</div>
+              <div class="perk"><i class="fas fa-undo-alt"></i> Đổi trả trong 30 ngày</div>
+              <div class="perk"><i class="fas fa-shield-alt"></i> Bảo hành 12 tháng</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Tabs -->
+      <div class="row mt-5">
+        <div class="col-12">
+          <div class="detail-tabs">
+            <ul class="nav nav-tabs" id="productTabs" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="desc-tab" data-toggle="tab" href="#descPanel" role="tab">Mô Tả Chi Tiết</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="review-tab" data-toggle="tab" href="#reviewPanel" role="tab">Đánh Giá (128)</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="policy-tab" data-toggle="tab" href="#policyPanel" role="tab">Chính Sách</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="productTabContent">
+              <!-- Mô tả -->
+              <div class="tab-pane fade show active" id="descPanel" role="tabpanel">
+                <div class="tab-body">
+                  <h5>Đặc Điểm Nổi Bật</h5>
+                  <ul>
+                    <li>Gọng kính Acetate cao cấp nhập khẩu từ Ý, siêu nhẹ và bền bỉ.</li>
+                    <li>Thiết kế tròn retro – phù hợp đa dạng khuôn mặt.</li>
+                    <li>Tròng kính chống ánh sáng xanh, giảm mỏi mắt hiệu quả.</li>
+                    <li>Lớp phủ chống trầy xước và chống phản chiếu.</li>
+                    <li>Bản lề lò xo linh hoạt, ôm sát khuôn mặt.</li>
+                  </ul>
+                  <h5 class="mt-4">Hướng Dẫn Bảo Quản</h5>
+                  <p>Lau kính bằng khăn microfiber chuyên dụng. Bảo quản trong hộp kính khi không sử dụng. Tránh đặt kính úp mặt xuống bề mặt cứng.</p>
+                </div>
+              </div>
+              <!-- Đánh giá -->
+              <div class="tab-pane fade" id="reviewPanel" role="tabpanel">
+                <div class="tab-body">
+                  <div class="review-item">
+                    <div class="review-header">
+                      <strong>Nguyễn Minh Anh</strong>
+                      <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                      </div>
+                      <span class="review-date">15/04/2026</span>
+                    </div>
+                    <p>Kính rất đẹp, đúng như hình. Gọng nhẹ, đeo cả ngày không bị đau tai. Tròng chống ánh sáng xanh rất hiệu quả.</p>
+                  </div>
+                  <div class="review-item">
+                    <div class="review-header">
+                      <strong>Trần Đức Huy</strong>
+                      <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                      </div>
+                      <span class="review-date">02/04/2026</span>
+                    </div>
+                    <p>Chất lượng tốt, giao hàng nhanh. Giá hợp lý so với chất lượng nhận được. Sẽ ủng hộ thêm.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Chính sách -->
+              <div class="tab-pane fade" id="policyPanel" role="tabpanel">
+                <div class="tab-body">
+                  <h5>Chính Sách Đổi Trả</h5>
+                  <p>Sản phẩm được đổi trả miễn phí trong 30 ngày kể từ ngày nhận hàng nếu sản phẩm bị lỗi kỹ thuật hoặc không đúng mô tả.</p>
+                  <h5 class="mt-4">Chính Sách Bảo Hành</h5>
+                  <p>Bảo hành 12 tháng cho gọng kính và 6 tháng cho tròng kính. Áp dụng cho lỗi từ nhà sản xuất.</p>
+                  <h5 class="mt-4">Vận Chuyển</h5>
+                  <p>Miễn phí vận chuyển toàn quốc cho đơn hàng từ 500.000₫. Giao hàng trong 2-5 ngày làm việc.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Products -->
+      <div class="row mt-5">
+        <div class="col-12">
+          <h3 class="section-title text-center">Sản Phẩm Liên Quan</h3>
+          <div class="section-divider"></div>
+        </div>
+      </div>
+      <div class="row mt-4" id="relatedProducts">
+        <div class="col-lg-3 col-md-6">
+          <div class="product-card">
+            <div class="product-img-wrapper">
+              <a href="product-detail.html?id=2"><img src="img/product3.png" alt="Owlera Titanium Slim"></a>
+            </div>
+            <div class="product-info">
+              <p class="product-category">Kính Cận</p>
+              <h5 class="product-name"><a href="product-detail.html?id=2">Owlera Titanium Slim</a></h5>
+              <p class="product-price">1.000.000₫</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="product-card">
+            <div class="product-img-wrapper">
+              <a href="product-detail.html?id=3"><img src="img/product4.png" alt="Owlera Blue Shield"></a>
+            </div>
+            <div class="product-info">
+              <p class="product-category">Kính Cận</p>
+              <h5 class="product-name"><a href="product-detail.html?id=3">Owlera Blue Shield</a></h5>
+              <p class="product-price">1.100.000₫</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="product-card">
+            <div class="product-img-wrapper">
+              <a href="product-detail.html?id=30"><img src="img/product3.png" alt="Owlera Vintage Rose"></a>
+            </div>
+            <div class="product-info">
+              <p class="product-category">Kính Thời Trang</p>
+              <h5 class="product-name"><a href="product-detail.html?id=30">Owlera Vintage Rose</a></h5>
+              <p class="product-price">1.520.000₫</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="product-card">
+            <div class="product-img-wrapper">
+              <a href="product-detail.html?id=16"><img src="img/product3.png" alt="Owlera Cat-Eye Noir"></a>
+            </div>
+            <div class="product-info">
+              <p class="product-category">Kính Râm</p>
+              <h5 class="product-name"><a href="product-detail.html?id=16">Owlera Cat-Eye Noir</a></h5>
+              <p class="product-price">1.200.000₫</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="footer-brand">
+            <h4><i class="fas fa-glasses mr-2" style="color:var(--accent);"></i>OWL<span>ERA</span></h4>
+            <p>Owlera – Thương hiệu mắt kính cao cấp hàng đầu Việt Nam.</p>
+            <div class="footer-social">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h5>Liên Kết</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="products.html">Sản Phẩm</a></li>
+            <li><a href="index.html#collection">Bộ Sưu Tập</a></li>
+            <li><a href="index.html#about">Về Chúng Tôi</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5>Hỗ Trợ</h5>
+          <ul class="footer-links">
+            <li><a href="support.html#huong-dan-mua-hang">Hướng Dẫn Mua Hàng</a></li>
+            <li><a href="support.html#chinh-sach-doi-tra">Chính Sách Đổi Trả</a></li>
+            <li><a href="support.html#chinh-sach-bao-hanh">Chính Sách Bảo Hành</a></li>
+            <li><a href="support.html#cau-hoi-thuong-gap">Câu Hỏi Thường Gặp</a></li>
+            <li><a href="support.html#chinh-sach-bao-mat">Chính Sách Bảo Mật</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5>Liên Hệ</h5>
+          <ul class="footer-links footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i><span>123 Nguyễn Huệ, Q.1, TP.HCM</span></li>
+            <li><i class="fas fa-phone-alt"></i><span>0123 456 789</span></li>
+            <li><i class="fas fa-envelope"></i><span>contact@owlera.vn</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom text-center">
+        <p class="mb-0">&copy; 2026 <a href="#">Owlera</a>. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
+
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/popper/popper.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/product-detail.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>
